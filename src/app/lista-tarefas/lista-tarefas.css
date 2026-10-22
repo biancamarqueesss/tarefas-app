@@ -1,0 +1,98 @@
+.card {
+  max-width: 640px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.contador {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  background: #f1f3f5;
+  border-radius: 6px;
+}
+
+.vazio {
+  text-align: center;
+  color: #777;
+  font-style: italic;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  /* Tarefa recém-cadastrada: azul */
+  background: #e3f2fd;
+  border-left: 5px solid #1976d2;
+  color: #0d47a1;
+}
+
+/* Tarefa removida: fica na lista, em vermelho */
+li.removida {
+  background: #ffebee;
+  border-left-color: #d32f2f;
+  color: #c62828;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tarefa concluída: sublinhada */
+.titulo.concluida {
+  text-decoration: underline;
+}
+
+small {
+  opacity: 0.8;
+}
+
+.acoes {
+  display: flex;
+  gap: 0.5rem;
+}
+
+button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.concluir {
+  background: #2e7d32; /* verde */
+}
+
+.remover {
+  background: #ef6c00; /* laranja */
+}
+
+a {
+  display: inline-block;
+  margin-top: 1.25rem;
+  color: #1976d2;
+}

@@ -1,0 +1,50 @@
+<section class="card">
+  <h2>Lista de tarefas</h2>
+
+  <div class="contador">
+    <span>Total: <strong>{{ total }}</strong></span>
+    <span>Concluídas: <strong>{{ concluidas }}</strong></span>
+    <span>Pendentes: <strong>{{ pendentes }}</strong></span>
+  </div>
+
+  @if (tarefas.length === 0) {
+    <p class="vazio">Nenhuma tarefa cadastrada</p>
+  } @else {
+    <ul>
+      @for (tarefa of tarefas; track tarefa.id) {
+        <li [class.removida]="tarefa.removida">
+          <div class="info">
+            <span class="titulo" [class.concluida]="tarefa.concluida">
+              {{ tarefa.titulo }}
+            </span>
+            <small>
+              @if (tarefa.prazo) {
+                {{ tarefa.prazo | date: 'dd/MM/yyyy' }} ·
+              }
+              {{ textoPrazo(tarefa.id) }}
+            </small>
+          </div>
+
+          <div class="acoes">
+            <button
+              class="concluir"
+              (click)="service.marcarConcluida(tarefa.id)"
+              [disabled]="tarefa.concluida || tarefa.removida"
+            >
+              Concluir
+            </button>
+            <button
+              class="remover"
+              (click)="service.remover(tarefa.id)"
+              [disabled]="tarefa.removida"
+            >
+              Remover
+            </button>
+          </div>
+        </li>
+      }
+    </ul>
+  }
+
+  <a routerLink="/cadastro">← Voltar ao cadastro</a>
+</section>

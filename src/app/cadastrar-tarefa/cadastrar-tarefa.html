@@ -1,0 +1,29 @@
+<section class="card">
+  <h2>Cadastrar tarefa</h2>
+
+  <form (ngSubmit)="cadastrar()">
+    <label>
+      Título
+      <input
+        type="text"
+        name="titulo"
+        [(ngModel)]="titulo"
+        placeholder="Ex.: Estudar Angular"
+        required
+      />
+    </label>
+
+    <label>
+      Prazo de conclusão
+      <input type="date" name="prazo" [(ngModel)]="prazo" />
+    </label>
+
+    <button type="submit" [disabled]="!titulo.trim()">Cadastrar</button>
+  </form>
+
+  @if (mensagem) {
+    <p class="sucesso">{{ mensagem }}</p>
+  }
+
+  <a routerLink="/lista">Ver lista de tarefas →</a>
+</section>
